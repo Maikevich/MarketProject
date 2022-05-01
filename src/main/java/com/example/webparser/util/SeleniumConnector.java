@@ -12,12 +12,10 @@ import org.springframework.context.annotation.PropertySource;
 public class SeleniumConnector {
 
 
-
     public WebDriver connect() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
+
         return new ChromeDriver(options);
     }
-
-
 }
