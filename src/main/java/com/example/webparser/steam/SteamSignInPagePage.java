@@ -1,6 +1,6 @@
 package com.example.webparser.steam;
 
-import com.example.webparser.interfaces.SignInPage;
+import com.example.webparser.interfaces.pages.SignInPage;
 import lombok.Data;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

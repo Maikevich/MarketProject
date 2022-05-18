@@ -1,7 +1,7 @@
 package com.example.webparser;
 
-import com.example.webparser.interfaces.SignInPage;
-import com.example.webparser.interfaces.StartPage;
+import com.example.webparser.interfaces.pages.SignInPage;
+import com.example.webparser.interfaces.pages.StartPage;
 import com.example.webparser.util.SeleniumConnector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

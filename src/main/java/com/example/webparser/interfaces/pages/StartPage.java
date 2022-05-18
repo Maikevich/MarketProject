@@ -1,4 +1,4 @@
-package com.example.webparser.interfaces;
+package com.example.webparser.interfaces.pages;
 
 import org.openqa.selenium.WebDriver;
 

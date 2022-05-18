@@ -1,6 +1,6 @@
 package com.example.webparser.market.csgo;
 
-import com.example.webparser.interfaces.StartPage;
+import com.example.webparser.interfaces.pages.StartPage;
 import lombok.Data;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
