@@ -33,5 +33,4 @@ public class Start {
         signInPage.signIn(webDriver);
     }
 
-
 }

@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 @Data
 @Component
-public class SteamSignInPagePage implements SignInPage {
+public class SteamSignInPage implements SignInPage {
     @Value("${steamLogin}")
     private String steamLogin;
     @Value("${steamPassword}")

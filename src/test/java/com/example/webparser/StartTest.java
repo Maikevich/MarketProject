@@ -28,7 +28,6 @@ class StartTest {
 
     @BeforeEach
       void init() {
-
         when(seleniumConnector.connect()).thenReturn(webDriver);
 
     }
