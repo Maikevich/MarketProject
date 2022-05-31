@@ -13,9 +13,10 @@ public class SeleniumConnector {
 
 
     public WebDriver connect() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-
+        options.addArguments("start-maximized");
+        options.addArguments("--disable-extensions");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         return new ChromeDriver(options);
     }
 }

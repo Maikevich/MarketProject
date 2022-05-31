@@ -9,20 +9,21 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-public class MarketCSGOStartPage implements StartPage {
+public class MarketCSGOStartPage  {
 
     @Value("${url}")
-    private String url;
+    private  static String url;
     @Value("${loginXpath}")
-    private String loginXpath;
+    private static String loginXpath;
 
-    @Override
-    public void openStartPage(WebDriver webDriver) {
+
+    public static void openStartPage(WebDriver webDriver) {
         webDriver.get(url);
+        startAuthentication(webDriver);
     }
 
-    @Override
-    public void startAuthentication(WebDriver webDriver) {
+
+    private static void startAuthentication(WebDriver webDriver) {
         webDriver.findElement(By.xpath(loginXpath)).click();
     }
 

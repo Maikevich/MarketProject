@@ -12,9 +12,8 @@ import javax.persistence.Table;
 @Data
 @Setter
 @RequiredArgsConstructor
-@Table(name = "csgoitem")
-public class CSGOItem {
-
+@Table(name = "steamItem")
+public class SteamItem {
     @Id
     private Long id;
     private String name;
@@ -22,6 +21,12 @@ public class CSGOItem {
     private double price;
     private String url;
 
+    public SteamItem(String name, String condition, String url, Double price) {
+        this.name = name;
+        this.condition = condition;
+        this.url = url;
+        this.price = price;
+    }
     @Override
     public String toString() {
         return "\n" + name + " " + condition + " price = " + price + "\n" + url + "\n";
