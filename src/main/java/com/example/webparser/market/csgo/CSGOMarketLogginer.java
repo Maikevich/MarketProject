@@ -1,9 +1,10 @@
-package com.example.webparser;
+package com.example.webparser.market.csgo;
 
 import com.example.webparser.entity.CSGOItem;
 import com.example.webparser.interfaces.pages.SignInPage;
 import com.example.webparser.interfaces.pages.StartPage;
 import com.example.webparser.market.csgo.CSGOMarketStartPageItemsParser;
+import com.example.webparser.steam.SteamSignInPage;
 import com.example.webparser.util.SeleniumConnector;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,7 @@ import java.util.List;
 @Data
 @Service
 @AllArgsConstructor
-public class Start {
+public class CSGOMarketLogginer {
 
     private final StartPage startPage;
     private final SignInPage signInPage;
@@ -26,11 +27,9 @@ public class Start {
 
     @EventListener({ContextRefreshedEvent.class})
     public void start() {
-        List<CSGOItem> csgoItemList = CSGOMarketStartPageItemsParser.parseStartPageForItems();
         WebDriver webDriver = seleniumConnector.connect();
-        startPage.openStartPage(webDriver);
-        startPage.startAuthentication(webDriver);
-        signInPage.signIn(webDriver);
+        MarketCSGOStartPage.openStartPage(webDriver);
+        SteamSignInPage.signIn(webDriver);
     }
 
 }

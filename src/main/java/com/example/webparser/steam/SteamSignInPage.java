@@ -13,23 +13,23 @@ import java.util.Scanner;
 
 @Data
 @Component
-public class SteamSignInPage implements SignInPage {
+public class SteamSignInPage  {
     @Value("${steamLogin}")
-    private String steamLogin;
+    private static String steamLogin;
     @Value("${steamPassword}")
-    private String steamPassword;
+    private static String steamPassword;
     @Value("${steamLoginFieldXpath}")
-    private String steamLoginFieldXpath;
+    private static String steamLoginFieldXpath;
     @Value("${steamPasswordFieldXpath}")
-    private String steamPasswordFieldXpath;
+    private static String steamPasswordFieldXpath;
     @Value("${signInXpath}")
-    private String signInXpath;
+    private static String signInXpath;
 
 
 
 
-    @Override
-    public void signIn(WebDriver webDriver) {
+
+    public static void signIn(WebDriver webDriver) {
         WebElement loginField = webDriver.findElement(By.xpath(steamLoginFieldXpath));
         WebElement passwordField = webDriver.findElement(By.xpath(steamPasswordFieldXpath));
         loginField.sendKeys(steamLogin);
