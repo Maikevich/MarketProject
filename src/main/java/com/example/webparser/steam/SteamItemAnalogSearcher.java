@@ -7,13 +7,16 @@ import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 @Data
 public class SteamItemAnalogSearcher {
@@ -85,15 +88,22 @@ public class SteamItemAnalogSearcher {
     }
 
     private static String parsePrice(Document doc) {
-
+        String str = doc.toString();
         try {
-            String[] arr = doc.toString().split("Запросов на покупку:");
-            String[] arr2 = arr[1].split("span");
-            String[] arr3 = arr2[3].split("\">");
-            String[] arr4 = arr3[1].split(" ");
-
-            return arr4[0].trim().replace(",", ".");
-        } catch (ArrayIndexOutOfBoundsException a) {
+            return Arrays.stream(Arrays.stream
+                    (Arrays.stream
+                            (Arrays.stream
+                                    (str.split(("Запросов на покупку:")))
+                                    .collect(Collectors.toList())
+                                    .get(1).split("span"))
+                            .collect(Collectors.toList())
+                            .get(3).split("\">"))
+                    .collect(Collectors.toList())
+                    .get(1).split(" "))
+                    .collect(Collectors.toList())
+                    .get(0).trim().replace(",", ".");
+        } catch (
+                ArrayIndexOutOfBoundsException a) {
             System.out.println("цену не распарсить");
         }
         return "0.0";
